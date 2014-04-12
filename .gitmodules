@@ -1,0 +1,6 @@
+[submodule "vty"]
+	path = vty
+	url = git@github.com:coreyoconnor/vty.git
+[submodule "yi"]
+	path = yi
+	url = git@github.com:coreyoconnor/yi.git
