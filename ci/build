@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -ex
+:${WORKSPACE=$PWD}
+project_sandbox=$WORKSPACE/.cabal-sandbox
+
+projects=(vty vty/test yi/yi yi/yi-contrib)
+has_tests=(1  0        0     0            )
+
+function assure-project-sandbox() {
+  cabal sandbox init
+}
+
+function assure-sandbox() {(
+  cabal sandbox init --sandbox=$PROJECT_SANDBOX
+)}
+
+function prep() {(
+  if (($2)) ; then
+    cabal install --enable-tests --only-dependencies
+    cabal configure --enable-tests
+  else
+    cabal install --only-dependencies
+    cabal configure
+  fi
+)}
+
+set -ex
+
+assure-global-sandbox
+
+for ((i = 0; i < ${#projects[@]}; i++)) ; do
+  (
+    cd $WORKSPACE/${projects[$i]}
+    assure-sandbox
+    prep ${has_tests[$i]}
+    cabal build
+    if ((${has_tests[$i]})) ; then
+      cabal test
+    fi
+  )
+done

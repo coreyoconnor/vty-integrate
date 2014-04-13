@@ -1,3 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -ex
 
+:${WORKSPACE=$PWD}
+
+cd vty
+git fetch --all
+git checkout --detach origin/master
+vty_sha=$(git rev-parse HEAD)
+cd ..
+git add vty
+git commit -m 'update vty to ${vty_sha}'
+./ci/build
