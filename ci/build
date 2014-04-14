@@ -7,7 +7,7 @@ project_sandbox=$WORKSPACE/.cabal-sandbox
 projects=(vty vty/test yi/yi yi/yi-contrib)
 has_tests=(1  0        0     0            )
 
-function assure-project-sandbox() {
+function assure-base-sandbox() {
   cabal sandbox init
 }
 
@@ -27,7 +27,7 @@ function prep() {(
 
 set -ex
 
-assure-global-sandbox
+assure-base-sandbox
 
 for ((i = 0; i < ${#projects[@]}; i++)) ; do
   (
