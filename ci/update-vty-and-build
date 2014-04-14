@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-:${WORKSPACE=$PWD}
+: ${WORKSPACE=$PWD}
 
 cd vty
 git fetch --all
