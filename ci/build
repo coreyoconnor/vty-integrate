@@ -15,7 +15,7 @@ function assure-base-sandbox() {
 }
 
 function assure-sandbox() {(
-  cabal sandbox init --sandbox=$PROJECT_SANDBOX
+  cabal sandbox init --sandbox=$project_sandbox
 )}
 
 function prep() {(
