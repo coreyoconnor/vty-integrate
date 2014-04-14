@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
+source /etc/profile
+
 set -ex
 : ${WORKSPACE=$PWD}
+
 
 project_sandbox=$WORKSPACE/.cabal-sandbox
 
