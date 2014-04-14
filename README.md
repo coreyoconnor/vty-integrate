@@ -1,4 +1,4 @@
-vty-yi-integrate
+vty-integrate
 ================
 
-build integration of vty and yi.
+integration testing of vty
