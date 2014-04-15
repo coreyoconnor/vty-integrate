@@ -41,5 +41,6 @@ for ((i = 0; i < ${#projects[@]}; i++)) ; do
     if ((${has_tests[$i]})) ; then
       cabal test
     fi
+    cabal install
   )
 done
