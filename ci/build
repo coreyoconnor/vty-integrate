@@ -19,7 +19,7 @@ function assure-sandbox() {(
 )}
 
 function prep() {(
-  if (($2)) ; then
+  if (($1)) ; then
     cabal install --enable-tests --only-dependencies
     cabal configure --enable-tests
   else
