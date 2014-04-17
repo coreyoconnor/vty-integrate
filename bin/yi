@@ -1,0 +1,7 @@
+#/usr/bin/env bash
+SOURCE_PATH=$(readlink "${BASH_SOURCE[0]}" || "${BASH_SOURCE[0]}")
+DIR="$( cd "$( dirname "${SOURCE_PATH}" )"/../ && pwd )"
+
+$DIR/.cabal-sandbox/bin/yi --ghc-option=-package-db \
+                           --ghc-option=$DIR/.cabal-sandbox/x86_64-linux-ghc-7.8.2-packages.conf.d \
+                           "$@"
